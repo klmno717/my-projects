@@ -1,0 +1,164 @@
+ 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <title>Glowing Card</title>
+    <style>
+      :root {
+  --card-height:  65vh;
+  --card-width:   calc(var(--card-height) / 1.5);
+  --bg:           25 28 41;
+  --color:        88 199 250;
+}
+
+body {
+    min-height: 100vh;
+    background: rgba(var(--bg) / 90%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+
+.card {
+    background: rgba(25,28,41, 0.8);
+    /* backdrop-filter: blur(10px); */
+    width: var(--card-width);
+    height: var(--card-height);
+    padding: 30px;
+    position: relative;
+    border-radius: 6px;
+    color: rgba(var(--color) / 80%);
+    cursor: pointer;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.card img {
+    width: 120px;
+    border-radius: 50%;
+}
+
+.image-container {
+    background-color: rgba(var(--color) / 30%);
+    padding: 10px;
+    margin: -20px;
+    margin-bottom: 20px;
+    border-radius: 7px;
+}
+
+.card p  {
+    text-align: left;
+}
+
+.card a {
+  color: rgba(var(--color) / 60%);
+  text-decoration: none;
+}
+
+.icons ion-icon {
+    font-size: 2.5rem;
+    margin: 5px;
+    margin-top: 20px;
+}
+
+@keyframes spin {
+    0% {
+        --rotate: 0deg;
+    }
+    100% {
+        --rotate: 360deg;
+    }
+}
+
+.card::before {
+    content: "";
+    width: 104%;
+    height: 102.7%;
+    border-radius: 8px;
+    background-image: linear-gradient(
+      var(--rotate),
+      #5ddcff,
+      #3c67e3 43%,
+      #4e00c2
+    );
+    position: absolute;
+    z-index: -1;
+    top: -1.3%;
+    left: -2%;
+    animation: spin 2.5s linear infinite;
+}
+
+.card::after {
+    position: absolute;
+    content: "";
+    top: calc(var(--card-height) / 6);
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    transform: scale(0.8);
+    filter: blur(calc(var(--card-height) / 6));
+    background-image: linear-gradient(
+      var(--rotate),
+      #5ddcff,
+      #3c67e3 43%,
+      #4e00c2
+    );
+    opacity: 1;
+    transition: opacity 0.5s;
+    animation: spin 2.5s linear infinite;
+}
+
+
+
+.card:hover:before,
+.card:hover:after {
+    animation: none;
+    opacity: 0;
+ }
+ @property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+ }
+</style>
+
+    
+
+</head>
+<body>
+
+    <div class="card">
+        <div class="image-container">
+            <img src="mask.png" alt="avatar">
+        </div>
+
+        <h2>Glowing Card</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur inventore aliquam non alias, expedita laboriosam obcaecati id fuga repudiandae. Facere quia doloribus, iusto voluptate cumque perferendis perspiciatis architecto eum recusandae.</p>
+        <a href="#">Read More...</a>
+
+        <div class="icons">
+            <ion-icon name="logo-facebook"></ion-icon>
+            <ion-icon name="logo-instagram"></ion-icon>
+            <ion-icon name="logo-github"></ion-icon>
+            <ion-icon name="logo-twitter"></ion-icon>
+        </div>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </div>
+
+    
+</body>
+</html>

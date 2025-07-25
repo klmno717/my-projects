@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+         overflow: hidden;
+         
+        }
+        .container spline-viewer{
+            position: absolute;
+            bottom: 0;  
+            transform: scale(1.1);
+        }
+        .content{
+           
+            font-family: sans-serif;
+            position: absolute;
+            left: 50%;
+            bottom:20%;
+            overflow: hidden;
+            background-color: transparent;
+            -webkit-text-stroke-color: white;
+            /* background-color: black; */
+
+        }
+        .content h1{
+            text-align: center;
+            font-size: 100px;
+
+            
+        }
+        .content p{
+            text-align: center;
+            font-size: 15px;
+        }
+        /* button */
+.btn {
+background: transparent;
+margin: 100px;
+padding: 15px 40px;
+border: none;
+outline: 1px solid blue;
+/* color: #FFF; */
+cursor: pointer;
+position: absolute;
+bottom: 10%;
+left:58%;
+z-index: 0;
+border-radius: 22px;
+transform: scale(3.0);
+}
+.btn a {
+  color: inherit;
+  text-decoration: none;
+}
+.btn::after {
+content: "";
+z-index: -1;
+position: absolute;
+width: 100%;
+height: 100%;
+/* background-color: #333; */
+left: 0;
+top: 0;
+border-radius: 10px;
+}
+/* glow */
+.btn::before {
+content: "";
+background: linear-gradient(
+45deg,
+#FF0000, #FF7300, #FFFB00, #48FF00,
+#00FFD5, #002BFF, #FF00C8, #FF0000
+);
+position: absolute;
+top: -2px;
+left: -2px;
+background-size: 600%;
+z-index: -1;
+width: calc(100% + 4px);
+height:  calc(100% + 4px);
+filter: blur(8px);
+animation: glowing 20s linear infinite;
+transition: opacity .3s ease-in-out;
+border-radius: 10px;
+opacity: 0;
+}
+
+@keyframes glowing {
+0% {background-position: 0 0;}
+50% {background-position: 400% 0;}
+100% {background-position: 0 0;}
+}
+
+/* hover */
+.btn:hover::before {
+opacity: 1;
+}
+
+.btn:active:after {
+background: transparent;
+}
+
+.btn:active {
+color: #000;
+font-weight: bold;
+}
+    </style>
+</head>
+<body>
+    <div class="logo"></div>
+    <div class="container">
+<!-- <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.26/build/spline-viewer.js"></script> -->
+<!-- <spline-viewer url="https://prod.spline.design/T233rCpoA43hQOzM/scene.splinecode"></spline-viewer> -->
+ <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.27/build/spline-viewer.js"></script>
+<spline-viewer loading-anim-type="spinner-big-dark" url="https://prod.spline.design/ZT6sbzaNku6bWAE1/scene.splinecode"></spline-viewer>
+
+        <div class="content"><h1>Hello There <br>
+        Welcome to my page</h1>
+        <p>this page was created using no code <br> 
+           for the 3D background</p></div>
+    </div>
+  <div><button class="btn"><a href="index2.html">Hover Me!</a></button></div>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .banner{
+    width: 100vw;
+    height: 100vh;
+    text-align: center; 
+    z-index: 1;
+
+}
+.bg{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            object-fit: contain;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;    
+            filter: url(#custom);  
+            mask-image: url(ink.gif);
+            mask-size: cover;
+            mask-position: center;
+}
+.bg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+.banner .box{
+    position: relative;
+    width: 40vw;
+    height: 100vh;
+    object-fit: contain;
+    top: 0;
+    left: 30%;
+    
+    background-color:black;
+    /* z-index:1; */
+    opacity: 0.44;
+       
+}
+.banner .slider{
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    
+    top: 23%;
+    left: calc(50% - 100px);
+    /* z-index: 1; */
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: rotating_frame 20s linear infinite; 
+    
+    
+    /* z-axis:1000px away from image */
+
+}
+@keyframes rotating_frame{
+    from{
+    transform: perspective(1000px) rotateX(-16deg) rotateY(0deg) ;
+    }
+    to{
+    transform:perspective(1000px) rotateX(-16deg) rotateY(360deg)}
+}
+.banner .slider .item{
+    z-index: 2;
+
+
+}
+.banner .slider .item0{
+    position: absolute;
+    inset:0 0 0 0;
+    transform:  rotateY(0deg) translateZ(550px);
+    /* z-index: 1; */
+    /* every item comes forward for 550px to form a circle */
+}
+.banner .slider .item1{
+    position: absolute;
+    inset:0 0 0 0;
+    transform:  rotateY(36deg) translateZ(550px);
+}
+.banner .slider .item2{
+    position: absolute;
+    inset:0 0 0 0;
+    transform:  rotateY(72deg) translateZ(550px);
+}
+.banner .slider .item3{
+    position: absolute;
+    inset:0 0 0 0;
+    transform:  rotateY(108deg) translateZ(550px);
+}
+.banner .slider .item4{
+    position: absolute;
+    inset:0 0 0 0;
+    transform:  rotateY(144deg) translateZ(550px);
+}
+.banner .slider .item5{
+    position: absolute;
+    inset:0 0 0 0;
+    transform:  rotateY(180deg) translateZ(550px);
+}
+.banner .slider .item6{
+    position: absolute;
+    inset:0 0 0 0;
+    transform:  rotateY(216deg) translateZ(550px);
+}
+.banner .slider .item7{
+    position: absolute;
+    inset:0 0 0 0;
+    transform:  rotateY(252deg) translateZ(550px);
+}
+.banner .slider .item8{
+    position: absolute;
+    inset:0 0 0 0;
+    transform:  rotateY(288deg) translateZ(550px);
+}
+.banner .slider .item9{
+    position: absolute;
+    inset:0 0 0 0;
+    transform:  rotateY(324deg) translateZ(550px);
+}
+.banner .slider .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* use the formula : (position-1)*(360deg/no of items) to calculate the degree at which each item should be rotated to form a perfect circle */
+
+/* however the main problem is to assign the two variables position and quantity to the css,.. its preety simple assign variables : quantity(10) and position(1,2,3,....,10) hence quantity should be the container variable(as it is constant) and position should be the item value as it is variable for each item */
+
+.image_gallary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 180px;
+  gap: 18px;
+  width: 80vw;
+  margin: 80px auto 0 auto;
+  padding: 20px;
+  overflow-y: auto;
+  height: 100vh;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+
+  scroll-behavior: smooth;
+}
+.image_gallary img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  transition: transform 0.3s cubic-bezier(.25,.8,.25,1), box-shadow 0.3s;
+  display: block;
+    background: rgba(255,255,255,0.3);
+  backdrop-filter: blur(20px);
+}
+.image_gallary img:hover {
+  transform: scale(1.04) translateY(-6px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+}
+
+/* Remove these lines: */
+.image_gallary img:nth-child(1) {
+  grid-column: span 1;
+  grid-row: span 4;
+  object-fit: contain;
+}
+  img:nth-child(2) {
+    grid-column: span 2;
+    grid-row: span 6;
+    object-fit: cover;
+  }
+  img:nth-child(3){
+    grid-row: span 8;
+    object-fit: cover;
+  }
+  img:nth-child(4),
+  img:nth-child(5),
+  img:nth-child(6),
+  img:nth-child(7) {
+    grid-column: span 1;
+    grid-row: span 4;
+    object-fit: cover;
+  }
+  img:nth-child(8){
+       grid-column:span 1;
+    grid-row: span 6; 
+    object-fit: cover;
+  }
+  img:nth-child(9),
+  img:nth-child(10) {
+    grid-column: span 1;
+    grid-row: span 4;
+    object-fit: cover;
+  }
+  .btn {
+background: transparent;
+margin: 100px;
+padding: 15px 40px;
+border: none;
+outline: 1px solid blue;
+/* color: #FFF; */
+cursor: pointer;
+position: absolute;
+right: 50%;;
+/* z-index: 0; */
+border-radius: 22px;
+transform: scale(2.0);
+}
+.btn a {
+  color: inherit;
+  text-decoration: none;
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="banner">
+        <div class="bg">
+            <img src="background.jpg" alt="">
+        </div>
+
+        <!-- <div class="box"></div> -->
+        <div class="slider" style="--quantity: 10" >
+            <div class="item item0" style="--position: 1"><img src="car6.jpg" alt=""></div>
+            <div class="item item1" style="--position: 2"><img src="car6.jpg" alt=""></div>
+            <div class="item item2" style="--position: 3"><img src="car6.jpg" alt=""></div>
+            <div class="item item3" style="--position: 4"><img src="car6.jpg" alt=""></div>
+            <div class="item item4" style="--position: 5"><img src="car6.jpg" alt=""></div>
+            <div class="item item5" style="--position: 6"><img src="car6.jpg" alt=""></div>
+            <div class="item item6" style="--position: 7"><img src="car6.jpg" alt=""></div>
+            <div class="item item7" style="--position: 8"><img src="car6.jpg" alt=""></div>
+            <div class="item item8" style="--position: 9"><img src="car6.jpg" alt=""></div>
+            <div class="item item9" style="--position: 10"><img src="car6.jpg" alt=""></div>
+        </div>
+    </div>
+                <div style="background-color: aqua;"><svg>
+        <filter id ="custom">
+            <feTurbulence type="turbulence" baseFrequency="0.01 0.003">
+                <animate attributeName="baseFrequency" from ="0.01 0.003" to="0.01 0.005" dur="3.6s" repeatCount="indefinite">
+                </animate>
+            </feTurbulence>
+            <feDisplacementMap in="SourceGraphic"  scale="30"/>
+        </filter>
+    </svg></div>
+    <div class="image_gallary">
+              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80" alt="Nature 1">
+      <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=500&q=80" alt="Nature 2">
+      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=500&q=80" alt="Nature 3">
+      <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=500&q=80" alt="Nature 4">
+      <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3c8b?auto=format&fit=crop&w=500&q=80" alt="Nature 5">
+      <img src="https://images.unsplash.com/photo-1465378553266-76363e2c7f74?auto=format&fit=crop&w=500&q=80" alt="Nature 6">
+      <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=500&q=80" alt="Nature 7">
+      <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=500&q=80" alt="Nature 8">
+      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=500&q=80" alt="Nature 9">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80" alt="Nature 10">
+    </div>
+    <div class="btn">
+        <a href="try.html">Click me to see more</a>
+    </div>
+</body>
+</html>
