@@ -1,102 +1,68 @@
- 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday!</title>
+<style>
+  :root {
+    --card-height: 80vh;
+    --card-width: calc(var(--card-height) / 1.2);
+    --bg: 25 28 41;
+    --color: 255 105 180; /* pink glow */
+  }
 
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <title>Glowing Card</title>
-    <style>
-      :root {
-  --card-height:  65vh;
-  --card-width:   calc(var(--card-height) / 1.5);
-  --bg:           25 28 41;
-  --color:        88 199 250;
-}
-
-body {
+  body {
     min-height: 100vh;
-    background: rgba(var(--bg) / 90%);
+    background: linear-gradient(135deg, #1c1f2b, #3a1c5d);
     display: flex;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    box-sizing: border-box;
-    font-family: Roboto;
-}
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+  }
 
-.card {
-    background: rgba(25,28,41, 0.8);
-    /* backdrop-filter: blur(10px); */
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ff7ac8;
+    text-shadow: 0 0 15px rgba(255, 105, 180, 0.6);
+  }
+
+  .card {
+    background: rgba(25, 28, 41, 0.85);
     width: var(--card-width);
     height: var(--card-height);
-    padding: 30px;
+    padding: 20px;
     position: relative;
-    border-radius: 6px;
-    color: rgba(var(--color) / 80%);
-    cursor: pointer;
-    text-align: center;
-    margin-top: 30px;
-}
+    border-radius: 12px;
+    overflow-y: auto;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+  }
 
-.card img {
-    width: 120px;
-    border-radius: 50%;
-}
-
-.image-container {
-    background-color: rgba(var(--color) / 30%);
-    padding: 10px;
-    margin: -20px;
-    margin-bottom: 20px;
-    border-radius: 7px;
-}
-
-.card p  {
-    text-align: left;
-}
-
-.card a {
-  color: rgba(var(--color) / 60%);
-  text-decoration: none;
-}
-
-.icons ion-icon {
-    font-size: 2.5rem;
-    margin: 5px;
-    margin-top: 20px;
-}
-
-@keyframes spin {
-    0% {
-        --rotate: 0deg;
-    }
-    100% {
-        --rotate: 360deg;
-    }
-}
-
-.card::before {
+  .card::before {
     content: "";
     width: 104%;
-    height: 102.7%;
-    border-radius: 8px;
+    height: 102%;
+    border-radius: 12px;
     background-image: linear-gradient(
       var(--rotate),
-      #5ddcff,
-      #3c67e3 43%,
-      #4e00c2
+      #ff7ac8,
+      #ffcc70 43%,
+      #ff8b00
     );
     position: absolute;
     z-index: -1;
-    top: -1.3%;
+    top: -1%;
     left: -2%;
-    animation: spin 2.5s linear infinite;
-}
+    animation: spin 3s linear infinite;
+  }
 
-.card::after {
+  .card::after {
     position: absolute;
     content: "";
     top: calc(var(--card-height) / 6);
@@ -110,67 +76,85 @@ body {
     filter: blur(calc(var(--card-height) / 6));
     background-image: linear-gradient(
       var(--rotate),
-      #5ddcff,
-      #3c67e3 43%,
-      #4e00c2
+      #ff7ac8,
+      #ffcc70 43%,
+      #ff8b00
     );
     opacity: 1;
     transition: opacity 0.5s;
-    animation: spin 2.5s linear infinite;
-}
+    animation: spin 3s linear infinite;
+  }
 
+  @keyframes spin {
+    0% { --rotate: 0deg; }
+    100% { --rotate: 360deg; }
+  }
 
-
-.card:hover:before,
-.card:hover:after {
-    animation: none;
-    opacity: 0;
- }
- @property --rotate {
+  @property --rotate {
     syntax: "<angle>";
     initial-value: 132deg;
     inherits: false;
- }
-     .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-auto-rows: 10px;
-  gap: 10px;
-}
+  }
 
-.gallery img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: transform 0.3s;
-}
-.gallery img:hover {
-  transform: scale(1.05);
-}
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .gallery img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 182, 193, 0.6);
+  }
+
+  /* placeholder for missing image */
+  .placeholder {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: #fff;
+    font-style: italic;
+  }
+
+  .message {
+    margin-top: 15px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #f8dfff;
+  }
 
 </style>
-
-    
-
 </head>
 <body>
 
-    <div class="card">
-        <div class="gallery">
-           <img src="1.jpg">
-           <img src="2.jpg">
-           <img src="4.jpg">
-           <img src="3.jpg">
-           <img src="5.jpg">
-        </div>
-
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <h1>🎉 Happy Birthday Jaan 🎂</h1>
+  <div class="card">
+    <div class="gallery">
+      <img src="1.jpg" alt="Birthday image 1">
+      <img src="2.jpg" alt="Birthday image 2">
+      <img src="3.jpg" alt="Birthday image 3">
+      <img src="4.jpg" alt="Birthday image 4">
+      <div class="placeholder">Your special photo here 💖</div>
     </div>
 
-    
+    <p class="message">
+      Wishing you a day filled with love, laughter, and sweet memories.  
+      You make the world brighter just by being in it. 🌟  
+      May your birthday be as beautiful and special as you are! 💐
+    </p>
+  </div>
+
 </body>
-
 </html>
-
-
