@@ -131,6 +131,23 @@ body {
     initial-value: 132deg;
     inherits: false;
  }
+     .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 10px;
+  gap: 10px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
 </style>
 
     
@@ -139,8 +156,12 @@ body {
 <body>
 
     <div class="card">
-        <div class="image-container">
-           
+        <div class="gallery">
+           <img src="1.jpg">
+           <img src="2.jpg">
+           <img src="4.jpg">
+           <img src="3.jpg">
+           <img src="5.jpg">
         </div>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -151,4 +172,5 @@ body {
 </body>
 
 </html>
+
 
