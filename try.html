@@ -102,16 +102,25 @@
     inherits: false;
   }
 
-  .gallery {
+.gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 10px;
-  width: 90%;
-  max-width: 600px;
-  margin: 20px auto;
-  }
-      .grid-item {
+  gap: 9px;
+  width: 100%;
+  max-width: 900px;
+  margin: 10px auto;
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%; /* Increased height for better visibility */
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+        .grid-item {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -119,15 +128,6 @@
   border-radius: 12px;
   overflow: hidden;
 }
-
-  .gallery img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    object-fit: cover;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
 
   .gallery img:hover {
     transform: scale(1.05);
@@ -157,31 +157,26 @@
 </head>
 <body>
 
-  <h1>🎉 Happy Birthday Jaan 🎂</h1>
+  <h1>🎉 Happy Birthday Jaan 🎂 <br> click the photos to see them</h1>
   <div class="card">
   <div class="gallery">
-  <div class="grid-item"><img src="1.jpg" alt="Birthday image 1"></div>  <!-- cell 1 -->
+  <div class="grid-item"><a href="1.jpg"><img src="1.jpg" alt="Birthday image 1"></a></div>  <!-- cell 1 -->
   <div class="grid-item"></div>                                           <!-- cell 2 empty -->
-  <div class="grid-item"><img src="2.jpg" alt="Birthday image 2"></div>  <!-- cell 3 -->
+  <div class="grid-item"><a href="2.jpg"><img src="2.jpg" alt="Birthday image 2"></a></div>  <!-- cell 3 -->
   <div class="grid-item"></div>                                           <!-- cell 4 empty -->
-  <div class="grid-item"><img src="3.jpg" alt="Birthday image 3"></div>  <!-- cell 5 -->
+  <div class="grid-item"><a href="4.jpg"><img src="4.jpg" alt="Birthday image 3"></a></div>  <!-- cell 5 -->
   <div class="grid-item"></div>                                           <!-- cell 6 empty -->
-  <div class="grid-item"><img src="4.jpg" alt="Birthday image 4"></div>  <!-- cell 7 -->
+  <div class="grid-item"><a href="3.jpg"><img src="3.jpg" alt="Birthday image 4"></a></div>  <!-- cell 7 -->
   <div class="grid-item"></div>                                           <!-- cell 8 empty -->
-  <div class="grid-item"><img src="5.jpg" alt="Birthday image 5"></div>  <!-- cell 9 -->
+  <div class="grid-item"><a href="5.jpg"><img src="5.jpg" alt="Birthday image 5"></a></div>  <!-- cell 9 -->
 </div>
 
 
-    <p class="message">
-      Wishing you a day filled with love, laughter, and sweet memories.  
-      You make the world brighter just by being in it. 🌟  
-      May your birthday be as beautiful and special as you are! 💐
-    </p>
+
   </div>
 
 </body>
 </html>
-
 
 
 
